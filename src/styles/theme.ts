@@ -30,6 +30,7 @@ export default {
       200: "#999591",
       100: "#F4EDE8",
     },
+    white: "#ffffff",
     orange: "#FF9000",
     red: "#FF002E",
   },
