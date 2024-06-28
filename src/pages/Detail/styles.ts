@@ -11,6 +11,53 @@ export const Wrapper = styled.div`
     "content";
 `;
 
+export const Main = styled.main`
+  grid-area: content;
+  overflow-y: scroll;
+  padding-block: 6.4rem;
+`;
+
+export const Container = styled.div`
+  --gutter: 1.6rem;
+  width: 100%;
+  max-width: calc(55.4rem + var(--gutter) * 2);
+  padding-inline: var(--gutter);
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  > button {
+    align-self: end;
+  }
+`;
+
+export const Content = styled.section`
+  margin: 6.4rem 0 5rem;
+`;
+
+export const Title = styled.h1`
+  margin-bottom: 1.6rem;
+
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.huge};
+    font-weight: ${theme.font.weight.medium};
+  `}
+`;
+
+export const Text = styled.p`
+  line-height: 130%;
+  text-align: justify;
+
+  &:not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+
+  ${({ theme }) => css`
+    font-family: ${theme.font.family.secondary};
+  `}
+`;
+
 export const Links = styled.ul`
   list-style: none;
 `;
