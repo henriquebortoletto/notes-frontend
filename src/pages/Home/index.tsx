@@ -1,8 +1,10 @@
+import Header from "@/components/Header";
+
 import * as S from "./styles";
 
 const Home = () => (
   <S.Wrapper>
-    <h1>Hello World</h1>
+    <Header />
   </S.Wrapper>
 );
 
