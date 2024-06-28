@@ -1,13 +1,16 @@
 import Header from "@/components/Header";
+import ButtonText from "@/components/ButtonText";
 import Section from "@/components/Section";
 import Tag from "@/components/Tag";
 
 import * as S from "./styles";
 
-const Home = () => (
+const Detail = () => (
   <S.Wrapper>
     <Header />
     <main>
+      <ButtonText title="Excluir a nota" />
+
       <Section title="Links úteis">
         <S.Links>
           <S.Link>
@@ -27,4 +30,4 @@ const Home = () => (
   </S.Wrapper>
 );
 
-export default Home;
+export default Detail;
