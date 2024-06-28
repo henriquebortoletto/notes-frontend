@@ -6,12 +6,6 @@ export const Button = styled.button`
   padding: 1.6rem;
   transition: all 0.2s;
 
-  ${({ theme }) => css`
-    font-weight: ${theme.font.weight.medium};
-    color: ${theme.colors.gray[800]};
-    background-color: ${theme.colors.orange};
-  `}
-
   &:not(:disabled):hover {
     opacity: 0.9;
   }
@@ -20,4 +14,10 @@ export const Button = styled.button`
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  ${({ theme }) => css`
+    font-weight: ${theme.font.weight.medium};
+    color: ${theme.colors.gray[800]};
+    background-color: ${theme.colors.orange};
+  `}
 `;

@@ -22,8 +22,13 @@ export const Link = styled.li`
 `;
 
 export const Item = styled.a`
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
   ${({ theme }) => css`
     color: ${theme.colors.gray[100]};
-    text-decoration: none;
   `}
 `;

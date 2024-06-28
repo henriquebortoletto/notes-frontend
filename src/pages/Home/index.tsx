@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Section from "@/components/Section";
+import Tag from "@/components/Tag";
 
 import * as S from "./styles";
 
@@ -19,7 +20,8 @@ const Home = () => (
       </Section>
 
       <Section title="Marcadores">
-        <p>Marcadores</p>
+        <Tag title="express" />
+        <Tag title="nodejs" />
       </Section>
     </main>
   </S.Wrapper>
