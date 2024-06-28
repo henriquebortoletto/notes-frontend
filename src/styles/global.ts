@@ -49,8 +49,8 @@ const GlobalStyles = createGlobalStyle`
   :focus {
     outline: none;
     ${({ theme }) => css`
-      box-shadow: 0 0 0 1px ${theme.colors.gray[100]},
-        0 0 0 4px ${theme.colors.orange};
+      box-shadow: 0 0 0 2px ${theme.colors.gray[100]},
+        0 0 0 6px rgba(255, 144, 0, 0.5);
     `}
   }
 `;
