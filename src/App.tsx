@@ -1,13 +1,13 @@
 import { ThemeProvider } from "styled-components";
 
-import Detail from "@/pages/Detail";
+import Home from "@/pages/Home";
 
 import GlobalStyles from "@/styles/global";
 import theme from "@/styles/theme";
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Detail />
+    <Home />
     <GlobalStyles />
   </ThemeProvider>
 );
