@@ -2,6 +2,7 @@ import { FiPlus } from "react-icons/fi";
 
 import Header from "@/components/Header";
 import ButtonText from "@/components/ButtonText";
+import Input from "@/components/Input";
 
 import * as S from "./styles";
 
@@ -27,7 +28,9 @@ const Home = () => (
         </S.Item>
       </S.Menu>
     </S.Aside>
-    <S.Search>search</S.Search>
+    <S.Search>
+      <Input type="text" placeholder="Pesquisar pelo título" />
+    </S.Search>
     <S.Content>content</S.Content>
     <S.NewNote>
       <FiPlus size={24} />

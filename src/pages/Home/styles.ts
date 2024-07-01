@@ -6,7 +6,7 @@ export const Wrapper = styled.main`
 
   display: grid;
   grid-template-columns: 25rem 1fr;
-  grid-template-rows: min-content 128px 1fr 8rem;
+  grid-template-rows: min-content min-content 1fr 8rem;
   grid-template-areas:
     "brand header"
     "menu search"
@@ -55,12 +55,14 @@ export const Item = styled.li`
   }
 `;
 
-export const Search = styled.div`
+export const Search = styled.section`
   grid-area: search;
+  margin: 6.4rem 6.4rem 8.4rem;
 `;
 
-export const Content = styled.div`
+export const Content = styled.section`
   grid-area: content;
+  margin: 0 6.4rem 6.4rem;
 `;
 
 export const NewNote = styled.button`

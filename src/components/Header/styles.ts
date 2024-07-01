@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Wrapper = styled.header`
   grid-area: header;
   width: 100%;
-  padding: 1.7rem 4.5rem;
+  padding: 1.7rem 6.4rem;
 
   display: flex;
   justify-content: space-between;
