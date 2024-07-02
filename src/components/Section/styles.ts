@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.section`
+export const Wrapper = styled.div`
   margin-bottom: 4rem;
 `;
 

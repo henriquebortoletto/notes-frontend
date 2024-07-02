@@ -57,12 +57,13 @@ export const Item = styled.li`
 
 export const Search = styled.section`
   grid-area: search;
-  margin: 6.4rem 6.4rem 8.4rem;
+  padding: 6.4rem 6.4rem 8.4rem;
 `;
 
 export const Content = styled.section`
   grid-area: content;
-  margin: 0 6.4rem 6.4rem;
+  padding-inline: 6.4rem;
+  overflow-y: auto;
 `;
 
 export const NewNote = styled.button`
