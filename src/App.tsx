@@ -1,13 +1,13 @@
 import { ThemeProvider } from "styled-components";
 
-import SignUp from "@/pages/SignUp";
+import Profile from "@/pages/Profile";
 
 import GlobalStyles from "@/styles/global";
 import theme from "@/styles/theme";
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <SignUp />
+    <Profile />
     <GlobalStyles />
   </ThemeProvider>
 );
