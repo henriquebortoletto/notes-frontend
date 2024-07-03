@@ -67,5 +67,9 @@ export const Label = styled.label`
 
   ${({ theme }) => css`
     background-color: ${theme.colors.orange};
+
+    > svg {
+      color: ${theme.colors.gray[800]};
+    }
   `}
 `;
