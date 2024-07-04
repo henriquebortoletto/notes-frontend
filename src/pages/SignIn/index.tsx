@@ -16,7 +16,7 @@ const SignIn = () => (
         <Input $icon={FiLock} type="password" placeholder="Senha" />
         <Button $title="Entrar" type="submit" />
       </S.Form>
-      <S.Link>Criar conta</S.Link>
+      <S.SignUpLink to="/signup">Criar conta</S.SignUpLink>
     </S.Box>
     <S.Background />
   </S.Wrapper>

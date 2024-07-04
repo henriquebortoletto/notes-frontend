@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const Wrapper = styled.button`
+export const Wrapper = styled(Link)`
   text-align: left;
 
   width: 100%;

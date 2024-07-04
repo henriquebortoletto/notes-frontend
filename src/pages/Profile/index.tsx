@@ -8,9 +8,9 @@ import * as S from "./styles";
 const Profile = () => (
   <S.Wrapper>
     <S.Header>
-      <S.Link href="/" title="Voltar">
+      <S.ToBack to="/" title="Voltar para Home">
         <FiArrowLeft />
-      </S.Link>
+      </S.ToBack>
     </S.Header>
 
     <S.Form>

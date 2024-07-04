@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
@@ -41,7 +42,7 @@ export const HeadingTitle = styled.h2`
   `}
 `;
 
-export const HeadingLink = styled.a`
+export const HeadingLink = styled(Link)`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.larger};
     color: ${theme.colors.gray[200]};

@@ -4,7 +4,7 @@ import * as S from "./styles";
 
 const Header = () => (
   <S.Wrapper>
-    <S.Profile>
+    <S.Profile to="/profile" title="Ir para perfil">
       <S.Image
         src="https://github.com/henriquebortoletto.png"
         alt="Imagem de Perfil de Henrique Bortoletto"

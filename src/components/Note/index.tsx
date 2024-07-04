@@ -7,7 +7,7 @@ interface NoteProps {
 }
 
 const Note = ({ $title, $tags }: NoteProps) => (
-  <S.Wrapper>
+  <S.Wrapper to="/detail/1">
     <S.Heading>{$title}</S.Heading>
     {$tags.map((tag) => (
       <Tag key={tag} $title={tag} />

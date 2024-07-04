@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.header`
@@ -14,10 +15,14 @@ export const Wrapper = styled.header`
   `}
 `;
 
-export const Profile = styled.div`
+export const Profile = styled(Link)`
   display: flex;
   align-items: center;
   gap: 0.8rem;
+
+  &:focus {
+    box-shadow: none;
+  }
 `;
 
 export const Image = styled.img`

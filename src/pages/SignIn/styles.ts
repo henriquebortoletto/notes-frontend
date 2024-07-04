@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.main`
@@ -50,11 +51,16 @@ export const Form = styled.form`
   }
 `;
 
-export const Link = styled.a`
-  margin-top: 12.4rem;
+export const SignUpLink = styled(Link)`
+  margin: 12.4rem auto 0;
+  width: fit-content;
 
   ${({ theme }) => css`
     color: ${theme.colors.orange};
+
+    &:hover {
+      text-decoration: underline;
+    }
   `}
 `;
 

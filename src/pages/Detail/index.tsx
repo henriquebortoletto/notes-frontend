@@ -11,6 +11,7 @@ const Detail = () => (
     <Header />
     <S.Main>
       <S.Container>
+        {/* esse botao precisa ser um link */}
         <ButtonText $title="Excluir a nota" />
 
         <S.Heading>
@@ -44,6 +45,7 @@ const Detail = () => (
           <Tag $title="nodejs" />
         </Section>
 
+        {/* esse botao precisa ser um link */}
         <Button $title="Voltar" />
       </S.Container>
     </S.Main>

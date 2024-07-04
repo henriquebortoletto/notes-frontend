@@ -20,7 +20,7 @@ const SignUp = () => (
         <Input $icon={FiLock} type="password" placeholder="Senha" />
         <Button $title="Cadastrar" type="submit" />
       </S.Form>
-      <S.Link>Voltar para o login</S.Link>
+      <S.SignInLink to="/">Voltar para o login</S.SignInLink>
     </S.Box>
   </S.Wrapper>
 );

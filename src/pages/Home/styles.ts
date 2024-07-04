@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.main`
@@ -66,7 +67,7 @@ export const Content = styled.section`
   overflow-y: auto;
 `;
 
-export const NewNote = styled.button`
+export const NewNote = styled(Link)`
   grid-area: note;
 
   display: flex;

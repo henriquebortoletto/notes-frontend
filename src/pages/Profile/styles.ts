@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div``;
@@ -10,7 +11,7 @@ export const Header = styled.header`
   `}
 `;
 
-export const Link = styled.a`
+export const ToBack = styled(Link)`
   line-height: 0;
   padding: 1.4rem;
 

@@ -14,7 +14,7 @@ const Create = () => (
       <S.Container>
         <S.Heading>
           <S.HeadingTitle>Criar nota</S.HeadingTitle>
-          <S.HeadingLink href="/">voltar</S.HeadingLink>
+          <S.HeadingLink to="/">voltar</S.HeadingLink>
         </S.Heading>
         <S.Form>
           <Input type="text" placeholder="Título" />

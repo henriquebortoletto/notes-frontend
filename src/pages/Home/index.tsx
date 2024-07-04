@@ -39,7 +39,7 @@ const Home = () => (
         <Note $title="Exemplo de Middleware" $tags={["express", "nodejs"]} />
       </Section>
     </S.Content>
-    <S.NewNote>
+    <S.NewNote to="/create">
       <FiPlus size={24} />
       Criar Nota
     </S.NewNote>
