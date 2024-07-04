@@ -1,13 +1,13 @@
 import { ThemeProvider } from "styled-components";
 
-import Create from "@/pages/Create";
+import Router from "@/routes";
 
 import GlobalStyles from "@/styles/global";
 import theme from "@/styles/theme";
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Create />
+    <Router />
     <GlobalStyles />
   </ThemeProvider>
 );
