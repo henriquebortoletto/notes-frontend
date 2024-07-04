@@ -26,34 +26,34 @@ const Profile = () => (
       </S.Avatar>
 
       <Input
+        $icon={FiUser}
+        $containerProps={{ style: { marginBottom: "0.8rem" } }}
         type="text"
         placeholder="Nome"
-        containerProps={{ style: { marginBottom: "0.8rem" } }}
-        icon={FiUser}
       />
 
       <Input
+        $icon={FiMail}
+        $containerProps={{ style: { marginBottom: "2.4rem" } }}
         type="email"
         placeholder="E-mail"
-        containerProps={{ style: { marginBottom: "2.4rem" } }}
-        icon={FiMail}
       />
 
       <Input
+        $icon={FiLock}
+        $containerProps={{ style: { marginBottom: "0.8rem" } }}
         type="password"
         placeholder="Senha atual"
-        containerProps={{ style: { marginBottom: "0.8rem" } }}
-        icon={FiLock}
       />
 
       <Input
+        $icon={FiLock}
+        $containerProps={{ style: { marginBottom: "2.4rem" } }}
         type="password"
         placeholder="Nova senha"
-        containerProps={{ style: { marginBottom: "2.4rem" } }}
-        icon={FiLock}
       />
 
-      <Button title="Salvar" />
+      <Button $title="Salvar" />
     </S.Form>
   </S.Wrapper>
 );

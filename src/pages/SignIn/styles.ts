@@ -16,14 +16,14 @@ export const Box = styled.section`
   justify-content: center;
 `;
 
-export const Title = styled.h1`
+export const Heading = styled.h1`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.massive};
     color: ${theme.colors.orange};
   `}
 `;
 
-export const Description = styled.p`
+export const Text = styled.p`
   margin-bottom: 4.8rem;
 
   ${({ theme }) => css`

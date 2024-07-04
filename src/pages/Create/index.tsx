@@ -19,13 +19,13 @@ const Create = () => (
         <S.Form>
           <Input type="text" placeholder="Título" />
           <TextArea placeholder="Observações" />
-          <Section title="Links úteis">
+          <Section $title="Links úteis">
             <S.SectionLinks>
               <NoteItem $value="https://www.rocketseat.com.br" />
               <NoteItem $isNewItem placeholder="Novo link" />
             </S.SectionLinks>
           </Section>
-          <Section title="Marcadores">
+          <Section $title="Marcadores">
             <S.SectionMarkers>
               <NoteItem $value="react" />
               <NoteItem $value="react" />
@@ -34,7 +34,7 @@ const Create = () => (
               <NoteItem $isNewItem placeholder="Novo marcador" />
             </S.SectionMarkers>
           </Section>
-          <Button type="submit" title="Salvar" />
+          <Button $title="Salvar" type="submit" />
         </S.Form>
       </S.Container>
     </S.Main>

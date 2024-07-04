@@ -17,16 +17,16 @@ const Home = () => (
     <S.Aside>
       <S.Menu>
         <S.Item>
-          <ButtonText title="Todos" isActive />
+          <ButtonText $title="Todos" $isActive />
         </S.Item>
         <S.Item>
-          <ButtonText title="Frontend" />
+          <ButtonText $title="Frontend" />
         </S.Item>
         <S.Item>
-          <ButtonText title="Node" />
+          <ButtonText $title="Node" />
         </S.Item>
         <S.Item>
-          <ButtonText title="React" />
+          <ButtonText $title="React" />
         </S.Item>
       </S.Menu>
     </S.Aside>
@@ -34,9 +34,9 @@ const Home = () => (
       <Input type="text" placeholder="Pesquisar pelo título" />
     </S.Search>
     <S.Content>
-      <Section title="Minhas notas">
-        <Note title="React Modal" tags={["react"]} />
-        <Note title="Exemplo de Middleware" tags={["express", "nodejs"]} />
+      <Section $title="Minhas notas">
+        <Note $title="React Modal" $tags={["react"]} />
+        <Note $title="Exemplo de Middleware" $tags={["express", "nodejs"]} />
       </Section>
     </S.Content>
     <S.NewNote>

@@ -15,10 +15,10 @@ const SignUp = () => (
       </S.Description>
       <S.Login>Crie sua conta</S.Login>
       <S.Form>
-        <Input type="text" placeholder="Nome" icon={FiUser} />
-        <Input type="email" placeholder="E-mail" icon={FiMail} />
-        <Input type="password" placeholder="Senha" icon={FiLock} />
-        <Button type="submit" title="Cadastrar" />
+        <Input $icon={FiUser} type="text" placeholder="Nome" />
+        <Input $icon={FiMail} type="email" placeholder="E-mail" />
+        <Input $icon={FiLock} type="password" placeholder="Senha" />
+        <Button $title="Cadastrar" type="submit" />
       </S.Form>
       <S.Link>Voltar para o login</S.Link>
     </S.Box>

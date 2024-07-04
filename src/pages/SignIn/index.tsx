@@ -8,15 +8,13 @@ import * as S from "./styles";
 const SignIn = () => (
   <S.Wrapper>
     <S.Box>
-      <S.Title>Rocket Notes</S.Title>
-      <S.Description>
-        Aplicação para salvar e gerenciar seus links úteis.
-      </S.Description>
+      <S.Heading>Rocket Notes</S.Heading>
+      <S.Text>Aplicação para salvar e gerenciar seus links úteis.</S.Text>
       <S.Login>Faça seu login</S.Login>
       <S.Form>
-        <Input type="email" placeholder="E-mail" icon={FiMail} />
-        <Input type="password" placeholder="Senha" icon={FiLock} />
-        <Button type="submit" title="Entrar" />
+        <Input $icon={FiMail} type="email" placeholder="E-mail" />
+        <Input $icon={FiLock} type="password" placeholder="Senha" />
+        <Button $title="Entrar" type="submit" />
       </S.Form>
       <S.Link>Criar conta</S.Link>
     </S.Box>

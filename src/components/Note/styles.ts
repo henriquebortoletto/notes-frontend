@@ -16,7 +16,7 @@ export const Wrapper = styled.button`
   `}
 `;
 
-export const Title = styled.h3`
+export const Heading = styled.h3`
   margin-bottom: 2.4rem;
 
   ${({ theme }) => css`

@@ -32,11 +32,11 @@ export const Container = styled.div`
   }
 `;
 
-export const Content = styled.section`
+export const Heading = styled.section`
   margin: 6.4rem 0 5rem;
 `;
 
-export const Title = styled.h1`
+export const HeadingTitle = styled.h1`
   margin-bottom: 1.6rem;
 
   ${({ theme }) => css`
@@ -45,7 +45,7 @@ export const Title = styled.h1`
   `}
 `;
 
-export const Text = styled.p`
+export const HeadingText = styled.p`
   line-height: 130%;
   text-align: justify;
 

@@ -1,14 +1,18 @@
 import * as S from "./styles";
 
-interface ButtonTextProps
+export interface ButtonTextProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  title: string;
-  isActive?: boolean;
+  $title: string;
+  $isActive?: boolean;
 }
 
-const ButtonText = ({ title, isActive = false, ...rest }: ButtonTextProps) => (
-  <S.Wrapper $isActive={isActive} type="button" {...rest}>
-    {title}
+const ButtonText = ({
+  $title,
+  $isActive = false,
+  ...rest
+}: ButtonTextProps) => (
+  <S.Wrapper $isActive={$isActive} type="button" {...rest}>
+    {$title}
   </S.Wrapper>
 );
 

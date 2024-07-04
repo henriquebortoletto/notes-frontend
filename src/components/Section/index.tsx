@@ -1,13 +1,13 @@
 import * as S from "./styles";
 
 interface SectionProps {
-  title: string;
+  $title: string;
   children: React.ReactNode;
 }
 
-const Section = ({ children, title }: SectionProps) => (
+const Section = ({ $title, children }: SectionProps) => (
   <S.Wrapper>
-    <S.Title>{title}</S.Title>
+    <S.Title>{$title}</S.Title>
     {children}
   </S.Wrapper>
 );

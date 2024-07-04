@@ -11,11 +11,11 @@ const Detail = () => (
     <Header />
     <S.Main>
       <S.Container>
-        <ButtonText title="Excluir a nota" />
+        <ButtonText $title="Excluir a nota" />
 
-        <S.Content>
-          <S.Title>Introdução ao React</S.Title>
-          <S.Text>
+        <S.Heading>
+          <S.HeadingTitle>Introdução ao React</S.HeadingTitle>
+          <S.HeadingText>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -25,10 +25,10 @@ const Detail = () => (
             with the release of Letraset sheets containing Lorem Ipsum passages,
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
-          </S.Text>
-        </S.Content>
+          </S.HeadingText>
+        </S.Heading>
 
-        <Section title="Links úteis">
+        <Section $title="Links úteis">
           <S.Links>
             <S.Link>
               <S.Item href="#">https://www.rocketseat.com.br/</S.Item>
@@ -39,12 +39,12 @@ const Detail = () => (
           </S.Links>
         </Section>
 
-        <Section title="Marcadores">
-          <Tag title="express" />
-          <Tag title="nodejs" />
+        <Section $title="Marcadores">
+          <Tag $title="express" />
+          <Tag $title="nodejs" />
         </Section>
 
-        <Button title="Voltar" />
+        <Button $title="Voltar" />
       </S.Container>
     </S.Main>
   </S.Wrapper>

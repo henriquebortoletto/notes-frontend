@@ -1,19 +1,20 @@
 import styled, { css } from "styled-components";
+import { DefaultTheme } from "styled-components/dist/types";
 
-interface ButtonTextProps {
-  $isActive?: boolean;
-}
+import { ButtonTextProps } from ".";
 
-/** Verificar se é um button ou um link (a) */
-export const Wrapper = styled.button<ButtonTextProps>`
+const modifiers = {
+  isActive: (theme: DefaultTheme) => css`
+    color: ${theme.colors.orange};
+  `,
+};
+
+export const Wrapper = styled.button<Omit<ButtonTextProps, "$title">>`
   padding: 0.5rem;
 
   ${({ theme, $isActive }) => css`
     color: ${theme.colors.gray[200]};
 
-    ${$isActive &&
-    css`
-      color: ${theme.colors.orange};
-    `}
+    ${$isActive && modifiers.isActive(theme)}
   `}
 `;
