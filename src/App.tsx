@@ -1,4 +1,5 @@
 import { ThemeProvider } from "styled-components";
+import { AuthProvider } from "@/hooks/auth";
 
 import Router from "@/routes";
 
@@ -7,8 +8,10 @@ import theme from "@/styles/theme";
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <Router />
     <GlobalStyles />
+    <AuthProvider>
+      <Router />
+    </AuthProvider>
   </ThemeProvider>
 );
 
