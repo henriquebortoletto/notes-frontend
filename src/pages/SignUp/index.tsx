@@ -2,12 +2,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
 
-import { createUserService } from "@/services/userService";
+import { api } from "@/services";
 
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 
 import * as S from "./styles";
+
+interface User {
+  name: string;
+  email: string;
+  password: string;
+}
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -16,7 +22,7 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (!name || !email || !password) {
@@ -24,7 +30,14 @@ const SignUp = () => {
       return;
     }
 
-    createUserService({ name, email, password })
+    const user: User = {
+      name,
+      email,
+      password,
+    };
+
+    api
+      .post("/users", user)
       .then(() => {
         alert("Usuário criado com sucesso");
         navigate("/");
