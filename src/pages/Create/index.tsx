@@ -1,9 +1,9 @@
-import Header from "@/components/Header";
-import Section from "@/components/Section";
-import NoteItem from "@/components/NoteItem";
 import TextArea from "@/components/TextArea";
-import Input from "@/components/Input";
+import NoteItem from "@/components/NoteItem";
+import Section from "@/components/Section";
+import Header from "@/components/Header";
 import Button from "@/components/Button";
+import Input from "@/components/Input";
 
 import * as S from "./styles";
 

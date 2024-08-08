@@ -1,9 +1,9 @@
 import { FiPlus } from "react-icons/fi";
 
-import Header from "@/components/Header";
 import ButtonText from "@/components/ButtonText";
-import Input from "@/components/Input";
 import Section from "@/components/Section";
+import Header from "@/components/Header";
+import Input from "@/components/Input";
 import Note from "@/components/Note";
 
 import * as S from "./styles";
