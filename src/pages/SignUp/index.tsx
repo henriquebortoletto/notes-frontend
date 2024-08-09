@@ -21,7 +21,7 @@ const SignUp = () => {
     event.preventDefault();
 
     if (!name || !email || !password) {
-      return alert("Preencha todos os campos");
+      return alert("Fill in all fields");
     }
 
     api
@@ -31,7 +31,7 @@ const SignUp = () => {
         password,
       })
       .then(() => {
-        alert("Usuário criado com sucesso");
+        alert("User created with success!");
         navigate("/");
       })
       .catch((error) => {

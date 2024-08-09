@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 
 import { Error as ResponseError } from "@/utils/Error";
 import { api } from "@/services";
@@ -24,8 +24,9 @@ interface UserAuthLogin {
 }
 
 interface AuthProvider {
-  user: UserProps | null;
+  userAuth: UserProps | null;
   userAuthLogin({ email, password }: UserAuthLogin): Promise<void>;
+  userAuthLogout(): void;
 }
 
 const AuthContext = createContext({} as AuthProvider);
@@ -35,23 +36,45 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<UserProps | null>(null);
+  const [userAuth, setUserAuth] = useState<UserProps | null>(null);
 
   async function userAuthLogin({ email, password }: UserAuthLogin) {
     try {
       const response = await api.post("/sessions", { email, password });
       const { token, user } = response.data;
 
+      localStorage.setItem(import.meta.env.VITE_KEY_APP, JSON.stringify(user));
+      localStorage.setItem(import.meta.env.VITE_KEY_TOKEN, token);
+
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-      setUser({ user, token });
+      setUserAuth({ user, token });
     } catch (error) {
       alert(ResponseError.message(error));
     }
   }
 
+  function userAuthLogout() {
+    localStorage.removeItem(import.meta.env.VITE_KEY_APP);
+    localStorage.removeItem(import.meta.env.VITE_KEY_TOKEN);
+
+    setUserAuth(null);
+  }
+
+  console.log("> [userAuth]", userAuth);
+
+  useEffect(() => {
+    const user = localStorage.getItem(import.meta.env.VITE_KEY_APP);
+    const token = localStorage.getItem(import.meta.env.VITE_KEY_TOKEN);
+
+    if (!(user && token)) return;
+
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    setUserAuth({ user: JSON.parse(user), token });
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user, userAuthLogin }}>
+    <AuthContext.Provider value={{ userAuth, userAuthLogin, userAuthLogout }}>
       {children}
     </AuthContext.Provider>
   );

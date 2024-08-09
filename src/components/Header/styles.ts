@@ -25,6 +25,29 @@ export const Profile = styled(Link)`
   }
 `;
 
+export const Avatar = styled.div`
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${({ theme }) => css`
+    background-color: ${theme.colors.gray[700]};
+  `}
+
+  > svg {
+    width: 100%;
+    height: 100%;
+
+    ${({ theme }) => css`
+      color: ${theme.colors.gray[900]};
+    `}
+  }
+`;
+
 export const Image = styled.img`
   width: 7rem;
   height: 7rem;

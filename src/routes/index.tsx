@@ -5,8 +5,7 @@ import AppRoutes from "@/routes/app.routes";
 import AuthRoutes from "@/routes/auth.routes";
 
 const Router = () => {
-  const { user } = useAuth();
-  const userIsAuthenticated = user;
+  const { userAuth: userIsAuthenticated } = useAuth();
 
   return (
     <BrowserRouter>

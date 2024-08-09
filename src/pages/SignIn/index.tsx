@@ -17,7 +17,7 @@ const SignIn = () => {
     event.preventDefault();
 
     if (!email || !password) {
-      return alert("Preencha todos os campos para fazer o login");
+      return alert("Fill in all fields to login");
     }
 
     userAuthLogin({ email, password });
