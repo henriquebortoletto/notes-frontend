@@ -25,6 +25,7 @@ interface UserAuthLogin {
 
 interface AuthProvider {
   userAuth: UserProps | null;
+  userAuthUpdateProfile({ user }): void;
   userAuthLogin({ email, password }: UserAuthLogin): Promise<void>;
   userAuthLogout(): void;
 }
@@ -37,6 +38,10 @@ interface AuthProviderProps {
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [userAuth, setUserAuth] = useState<UserProps | null>(null);
+
+  async function userAuthUpdateProfile({ user }: any) {
+    console.log("> [user]", user);
+  }
 
   async function userAuthLogin({ email, password }: UserAuthLogin) {
     try {
@@ -61,8 +66,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setUserAuth(null);
   }
 
-  console.log("> [userAuth]", userAuth);
-
   useEffect(() => {
     const user = localStorage.getItem(import.meta.env.VITE_KEY_APP);
     const token = localStorage.getItem(import.meta.env.VITE_KEY_TOKEN);
@@ -74,7 +77,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ userAuth, userAuthLogin, userAuthLogout }}>
+    <AuthContext.Provider
+      value={{ userAuth, userAuthLogin, userAuthLogout, userAuthUpdateProfile }}
+    >
       {children}
     </AuthContext.Provider>
   );
