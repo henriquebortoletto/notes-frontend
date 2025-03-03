@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { FiArrowLeft, FiCamera, FiLock, FiMail, FiUser } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
 
-import { useAuth } from "@/hooks/auth";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+
+import { useSession } from "@/hooks/session";
+import { env } from "@/env";
 
 import * as S from "./styles";
 
@@ -14,26 +17,44 @@ interface UserData {
   old_password: string;
 }
 
+const file = `${env.VITE_API_URL}/files`;
+
 const Profile = () => {
-  const { userAuth, userAuthUpdateProfile } = useAuth();
-  const { user } = userAuth!;
+  const { user, updateUser } = useSession();
 
-  const [name, setName] = useState(user.name);
-  const [email, setEmail] = useState(user.email);
-  const [password, setPassword] = useState("");
-  const [passwordNew, setPasswordNew] = useState("");
+  const [name, setName] = useState<string>(user?.name!);
+  const [email, setEmail] = useState<string>(user?.email!);
 
-  function userUpdateProfile(event: React.FormEvent<HTMLFormElement>) {
+  const [password, setPassword] = useState<string>("");
+  const [passwordNew, setPasswordNew] = useState<string>("");
+
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [avatar, setAvatar] = useState<string | null>(() => {
+    if (user?.avatar) return `${file}/${user.avatar}`;
+    return null;
+  });
+
+  function handleOnSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const data: UserData = {
+    const user: UserData = {
       name,
       email,
       password: passwordNew,
       old_password: password,
     };
 
-    userAuthUpdateProfile({ user: data });
+    updateUser({ user, avatar: avatarFile });
+  }
+
+  function handleChangeAvatar(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+
+    if (!file) return;
+    setAvatarFile(file);
+
+    const avatarUrl = URL.createObjectURL(file);
+    setAvatar(avatarUrl);
   }
 
   return (
@@ -44,15 +65,18 @@ const Profile = () => {
         </S.ToBack>
       </S.Header>
 
-      <S.Form onSubmit={userUpdateProfile}>
+      <S.Form onSubmit={handleOnSubmit}>
         <S.Avatar>
-          <S.Image
-            src="https://github.com/henriquebortoletto.png"
-            alt="Imagem de Perfil de Henrique Bortoletto"
-          />
+          {!avatar ? (
+            <S.Placeholder>
+              <FaUserCircle />
+            </S.Placeholder>
+          ) : (
+            <S.Image src={avatar} alt={`Imagem de Perfil de ${user?.name}`} />
+          )}
           <S.Label htmlFor="avatar">
             <FiCamera />
-            <input type="file" id="avatar" />
+            <input type="file" id="avatar" onChange={handleChangeAvatar} />
           </S.Label>
         </S.Avatar>
 
@@ -95,5 +119,4 @@ const Profile = () => {
     </S.Wrapper>
   );
 };
-
 export default Profile;

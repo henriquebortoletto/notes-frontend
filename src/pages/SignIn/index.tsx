@@ -1,26 +1,25 @@
 import { useState } from "react";
 import { FiMail, FiLock } from "react-icons/fi";
 
-import { useAuth } from "@/hooks/auth";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+
+import { useSession } from "@/hooks/session";
 
 import * as S from "./styles";
 
 const SignIn = () => {
+  const { signIn } = useSession();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const { userAuthLogin } = useAuth();
 
   function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!email || !password) {
-      return alert("Fill in all fields to login");
-    }
+    if (!email || !password) return alert("Fill in all fields to login");
 
-    userAuthLogin({ email, password });
+    signIn({ email, password });
   }
 
   return (

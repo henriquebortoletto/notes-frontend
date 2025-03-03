@@ -40,6 +40,32 @@ export const Avatar = styled.div`
   margin: calc(var(--dimension) / 2 * -1) auto 6.4rem;
 `;
 
+export const Placeholder = styled.div`
+  --dimension: 18.6rem;
+
+  position: relative;
+  width: var(--dimension);
+  height: var(--dimension);
+
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${({ theme }) => css`
+    background-color: ${theme.colors.gray[700]};
+  `}
+
+  > svg {
+    width: 100%;
+    height: 100%;
+
+    ${({ theme }) => css`
+      color: ${theme.colors.gray[900]};
+    `}
+  }
+`;
+
 export const Image = styled.img`
   width: 100%;
   height: 100%;

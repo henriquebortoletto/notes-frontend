@@ -1,17 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { useAuth } from "@/hooks/auth";
+import { useSession } from "@/hooks/session";
 import AppRoutes from "@/routes/app.routes";
 import AuthRoutes from "@/routes/auth.routes";
 
 const Router = () => {
-  const { userAuth: userIsAuthenticated } = useAuth();
+  const { user } = useSession();
 
-  return (
-    <BrowserRouter>
-      {userIsAuthenticated ? <AppRoutes /> : <AuthRoutes />}
-    </BrowserRouter>
-  );
+  return <BrowserRouter>{user ? <AppRoutes /> : <AuthRoutes />}</BrowserRouter>;
 };
 
 export default Router;

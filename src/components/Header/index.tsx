@@ -1,19 +1,22 @@
 import { RiShutDownLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 
-import { useAuth } from "@/hooks/auth";
+import { useSession } from "@/hooks/session";
+import { env } from "@/env";
+
 import * as S from "./styles";
 
+const file = `${env.VITE_API_URL}/files`;
+
 const Header = () => {
-  const { userAuth, userAuthLogout } = useAuth();
-  const { user } = userAuth!;
+  const { user, signOut } = useSession();
 
   return (
     <S.Wrapper>
       <S.Profile to="/profile" title="Ir para perfil">
-        {user.avatar ? (
+        {user?.avatar ? (
           <S.Image
-            src={`${import.meta.env.VITE_API_URL}/files/${user.avatar}`}
+            src={`${file}/${user.avatar}`}
             alt={`Imagem de Perfil de ${user.name}`}
           />
         ) : (
@@ -23,10 +26,10 @@ const Header = () => {
         )}
         <S.Content>
           <S.Welcome>Bem vindo,</S.Welcome>
-          <S.UserName>{user.name}</S.UserName>
+          <S.UserName>{user?.name}</S.UserName>
         </S.Content>
       </S.Profile>
-      <S.Logout onClick={userAuthLogout}>
+      <S.Logout onClick={signOut}>
         <RiShutDownLine />
       </S.Logout>
     </S.Wrapper>

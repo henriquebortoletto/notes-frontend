@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import { AuthProvider } from "@/hooks/auth";
+import { SessionProvider } from "@/hooks/session";
 
 import Router from "@/routes";
 
@@ -9,9 +9,9 @@ import theme from "@/styles/theme";
 const App = () => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <AuthProvider>
+    <SessionProvider>
       <Router />
-    </AuthProvider>
+    </SessionProvider>
   </ThemeProvider>
 );
 
