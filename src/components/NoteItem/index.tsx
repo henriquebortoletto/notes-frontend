@@ -3,23 +3,23 @@ import { FiPlus, FiX } from "react-icons/fi";
 
 import * as S from "./styles";
 
-export interface NoteItemProps extends ComponentProps<"input"> {
+export type NoteItemProps = ComponentProps<"input"> & {
   $isNewItem?: boolean;
   $value?: string;
-}
+};
 
 const NoteItem = ({
   $isNewItem = false,
   $value,
   onClick,
-  ...rest
+  ...props
 }: NoteItemProps) => (
   <S.Wrapper $isNewItem={$isNewItem}>
     <S.Input
       type="text"
       defaultValue={$value}
       readOnly={!$isNewItem}
-      {...rest}
+      {...props}
     />
     <S.Button
       type="button"
@@ -29,4 +29,6 @@ const NoteItem = ({
     </S.Button>
   </S.Wrapper>
 );
+NoteItem.displayName = "NoteItem";
+
 export default NoteItem;

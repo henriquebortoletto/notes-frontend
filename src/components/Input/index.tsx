@@ -1,15 +1,18 @@
+import { ComponentProps } from "react";
+
 import * as S from "./styles";
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  $icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  $containerProps?: React.InputHTMLAttributes<HTMLInputElement>;
-}
+type InputProps = ComponentProps<"input"> & {
+  $icon?: React.ElementType;
+  $containerProps?: ComponentProps<"input">;
+};
 
-const Input = ({ $icon: Icon, $containerProps, ...rest }: InputProps) => (
+const Input = ({ $icon: Icon, $containerProps, ...props }: InputProps) => (
   <S.Wrapper {...$containerProps}>
     {Icon && <Icon />}
-    <S.Input {...rest} />
+    <S.Input {...props} />
   </S.Wrapper>
 );
+Input.displayName = "Input";
 
 export default Input;

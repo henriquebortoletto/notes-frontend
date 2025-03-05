@@ -1,14 +1,17 @@
+import { ComponentProps } from "react";
+
 import * as S from "./styles";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps = ComponentProps<"button"> & {
   $title: string;
   $loading?: boolean;
-}
+};
 
-const Button = ({ $title, $loading = false, ...rest }: ButtonProps) => (
-  <S.Button type="button" disabled={$loading} {...rest}>
+const Button = ({ $title, $loading = false, ...props }: ButtonProps) => (
+  <S.Button type="button" disabled={$loading} {...props}>
     {$loading ? "Carregando..." : $title}
   </S.Button>
 );
+Button.displayName = "Button";
 
 export default Button;

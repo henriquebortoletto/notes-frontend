@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import TextArea from "@/components/TextArea";
 import NoteItem from "@/components/NoteItem";
@@ -7,14 +8,20 @@ import Header from "@/components/Header";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 
+import { api } from "@/services";
 import * as S from "./styles";
 
 const Create = () => {
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+
   const [links, setLinks] = useState<string[]>([]);
   const [newLink, setNewLink] = useState<string>("");
 
   const [marker, setMarker] = useState<string[]>([]);
   const [newMarker, setNewMarker] = useState<string>("");
+
+  const navigate = useNavigate();
 
   function handleCreateLink() {
     setLinks((state) => [...state, newLink]);
@@ -34,10 +41,26 @@ const Create = () => {
     setMarker((state) => state.filter((item) => item !== marker));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    console.log(">> [submit]", { links, marker });
+    if (!title || !description) {
+      return alert("Preencha todos os campos Título e/ou Descrição");
+    }
+
+    if (newLink || newMarker) {
+      return alert("Campo Link e/ou Tags não foram adicionados, adicione em +");
+    }
+
+    await api.post("/notes", {
+      title,
+      description,
+      links,
+      tags: marker,
+    });
+
+    alert("Nota criada com sucesso!");
+    navigate("/");
   }
 
   return (
@@ -50,8 +73,15 @@ const Create = () => {
             <S.HeadingLink to="/">voltar</S.HeadingLink>
           </S.Heading>
           <S.Form onSubmit={handleSubmit}>
-            <Input type="text" placeholder="Título" />
-            <TextArea placeholder="Observações" />
+            <Input
+              type="text"
+              placeholder="Título"
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <TextArea
+              placeholder="Observações"
+              onChange={(e) => setDescription(e.target.value)}
+            />
             <Section $title="Links úteis">
               <S.SectionLinks>
                 {links.map((link) => (

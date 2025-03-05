@@ -1,5 +1,10 @@
+import { ComponentProps } from "react";
+
 import * as S from "./styles";
 
-const TextArea = ({ ...rest }) => <S.TextArea {...rest}></S.TextArea>;
+type TextAreaProps = ComponentProps<"textarea">;
+
+const TextArea = ({ ...props }: TextAreaProps) => <S.TextArea {...props} />;
+TextArea.displayName = "TextArea";
 
 export default TextArea;

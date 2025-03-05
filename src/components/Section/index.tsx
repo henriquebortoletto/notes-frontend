@@ -1,9 +1,9 @@
 import * as S from "./styles";
 
-interface SectionProps {
+type SectionProps = {
   $title: string;
   children: React.ReactNode;
-}
+};
 
 const Section = ({ $title, children }: SectionProps) => (
   <S.Wrapper>
@@ -11,5 +11,6 @@ const Section = ({ $title, children }: SectionProps) => (
     {children}
   </S.Wrapper>
 );
+Section.displayName = "Section";
 
 export default Section;
