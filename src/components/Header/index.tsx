@@ -35,6 +35,5 @@ const Header = () => {
     </S.Wrapper>
   );
 };
-Header.displayName = "Header";
 
 export default Header;

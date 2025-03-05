@@ -13,6 +13,5 @@ const Input = ({ $icon: Icon, $containerProps, ...props }: InputProps) => (
     <S.Input {...props} />
   </S.Wrapper>
 );
-Input.displayName = "Input";
 
 export default Input;

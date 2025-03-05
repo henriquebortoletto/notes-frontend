@@ -12,6 +12,5 @@ const Button = ({ $title, $loading = false, ...props }: ButtonProps) => (
     {$loading ? "Carregando..." : $title}
   </S.Button>
 );
-Button.displayName = "Button";
 
 export default Button;

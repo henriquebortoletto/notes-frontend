@@ -16,6 +16,5 @@ const ButtonText = ({
     {$title}
   </S.Wrapper>
 );
-ButtonText.displayName = "ButtonText";
 
 export default ButtonText;

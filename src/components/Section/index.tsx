@@ -11,6 +11,5 @@ const Section = ({ $title, children }: SectionProps) => (
     {children}
   </S.Wrapper>
 );
-Section.displayName = "Section";
 
 export default Section;

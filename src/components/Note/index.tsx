@@ -14,6 +14,5 @@ const Note = ({ $title, $tags }: NoteProps) => (
     ))}
   </S.Wrapper>
 );
-Note.displayName = "Note";
 
 export default Note;

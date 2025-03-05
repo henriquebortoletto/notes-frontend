@@ -29,6 +29,5 @@ const NoteItem = ({
     </S.Button>
   </S.Wrapper>
 );
-NoteItem.displayName = "NoteItem";
 
 export default NoteItem;
