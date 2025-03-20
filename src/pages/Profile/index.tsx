@@ -22,8 +22,8 @@ const file = `${env.VITE_API_URL}/files`;
 const Profile = () => {
   const { user, updateUser } = useSession();
 
-  const [name, setName] = useState<string>(user?.name!);
-  const [email, setEmail] = useState<string>(user?.email!);
+  const [name, setName] = useState<string>(user?.name ?? "");
+  const [email, setEmail] = useState<string>(user?.email ?? "");
 
   const [password, setPassword] = useState<string>("");
   const [passwordNew, setPasswordNew] = useState<string>("");
@@ -81,8 +81,8 @@ const Profile = () => {
         </S.Avatar>
 
         <Input
-          $icon={FiUser}
-          $containerProps={{ style: { marginBottom: "0.8rem" } }}
+          icon={FiUser}
+          containerProps={{ style: { marginBottom: "0.8rem" } }}
           type="text"
           placeholder="Nome"
           value={name}
@@ -90,8 +90,8 @@ const Profile = () => {
         />
 
         <Input
-          $icon={FiMail}
-          $containerProps={{ style: { marginBottom: "2.4rem" } }}
+          icon={FiMail}
+          containerProps={{ style: { marginBottom: "2.4rem" } }}
           type="email"
           placeholder="E-mail"
           value={email}
@@ -99,22 +99,22 @@ const Profile = () => {
         />
 
         <Input
-          $icon={FiLock}
-          $containerProps={{ style: { marginBottom: "0.8rem" } }}
+          icon={FiLock}
+          containerProps={{ style: { marginBottom: "0.8rem" } }}
           type="password"
           placeholder="Senha atual"
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <Input
-          $icon={FiLock}
-          $containerProps={{ style: { marginBottom: "2.4rem" } }}
+          icon={FiLock}
+          containerProps={{ style: { marginBottom: "2.4rem" } }}
           type="password"
           placeholder="Nova senha"
           onChange={(e) => setPasswordNew(e.target.value)}
         />
 
-        <Button $title="Salvar" type="submit" />
+        <Button title="Salvar" type="submit" />
       </S.Form>
     </S.Wrapper>
   );

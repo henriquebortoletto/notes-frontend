@@ -50,24 +50,24 @@ const SignUp = () => {
         <S.Login>Crie sua conta</S.Login>
         <S.Form onSubmit={handleFormSubmit}>
           <Input
-            $icon={FiUser}
+            icon={FiUser}
             type="text"
             placeholder="Nome"
             onChange={(e) => setName(e.target.value)}
           />
           <Input
-            $icon={FiMail}
+            icon={FiMail}
             type="email"
             placeholder="E-mail"
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
-            $icon={FiLock}
+            icon={FiLock}
             type="password"
             placeholder="Senha"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button $title="Cadastrar" type="submit" />
+          <Button title="Cadastrar" type="submit" />
         </S.Form>
         <S.SignInLink to="/">Voltar para o login</S.SignInLink>
       </S.Box>

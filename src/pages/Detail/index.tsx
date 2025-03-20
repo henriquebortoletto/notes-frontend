@@ -1,55 +1,107 @@
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
 import ButtonText from "@/components/ButtonText";
 import Section from "@/components/Section";
 import Header from "@/components/Header";
 import Button from "@/components/Button";
 import Tag from "@/components/Tag";
 
+import { api } from "@/services";
+
 import * as S from "./styles";
 
-const Detail = () => (
-  <S.Wrapper>
-    <Header />
-    <S.Main>
-      <S.Container>
-        {/* esse botao precisa ser um link */}
-        <ButtonText $title="Excluir a nota" />
+interface Note {
+  id: number;
+  title: string;
+  description: string;
+  user_id: number;
+  created_at: string;
+  updated_at: string;
+  tags: Tag[];
+  links: Link[];
+}
 
-        <S.Heading>
-          <S.HeadingTitle>Introdução ao React</S.HeadingTitle>
-          <S.HeadingText>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </S.HeadingText>
-        </S.Heading>
+interface Tag {
+  id: number;
+  name: string;
+  user_id: number;
+  note_id: number;
+  created_at: string;
+}
 
-        <Section $title="Links úteis">
-          <S.Links>
-            <S.Link>
-              <S.Item href="#">https://www.rocketseat.com.br/</S.Item>
-            </S.Link>
-            <S.Link>
-              <S.Item href="#">https://www.rocketseat.com.br/</S.Item>
-            </S.Link>
-          </S.Links>
-        </Section>
+interface Link {
+  id: number;
+  url: string;
+  note_id: number;
+  created_at: string;
+}
 
-        <Section $title="Marcadores">
-          <Tag $title="express" />
-          <Tag $title="nodejs" />
-        </Section>
+const Detail = () => {
+  const [notes, setNotes] = useState<Note | null>(null);
 
-        {/* esse botao precisa ser um link */}
-        <Button $title="Voltar" />
-      </S.Container>
-    </S.Main>
-  </S.Wrapper>
-);
+  const params = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function getNotesById() {
+      const response = await api.get(`/notes/${params.id}`);
+      setNotes(response.data);
+    }
+
+    getNotesById();
+  }, [params.id]);
+
+  return (
+    <S.Wrapper>
+      <Header />
+      <S.Main>
+        <S.Container>
+          {notes && (
+            <>
+              <ButtonText title="Excluir a nota" />
+              <S.Heading>
+                <S.HeadingTitle>{notes?.title}</S.HeadingTitle>
+                <S.HeadingText>{notes?.description}</S.HeadingText>
+              </S.Heading>
+
+              {notes?.links && (
+                <Section title="Links úteis">
+                  <S.Links>
+                    {notes?.links.map((link) => (
+                      <S.Link key={link.id}>
+                        <S.Item href={link.url} target="_blank">
+                          {link.url}
+                        </S.Item>
+                      </S.Link>
+                    ))}
+                  </S.Links>
+                </Section>
+              )}
+
+              {notes?.tags && (
+                <Section title="Marcadores">
+                  {notes?.tags.map((tag) => (
+                    <Tag key={tag.id} title={tag.name} />
+                  ))}
+                </Section>
+              )}
+            </>
+          )}
+
+          {!notes && (
+            <S.EmptyContainer>
+              <S.EmptyText>
+                Não foi possível encontrar a nota selecionada.
+              </S.EmptyText>
+            </S.EmptyContainer>
+          )}
+
+          <Button title="Voltar" onClick={() => navigate("/")} />
+        </S.Container>
+      </S.Main>
+    </S.Wrapper>
+  );
+};
 
 export default Detail;

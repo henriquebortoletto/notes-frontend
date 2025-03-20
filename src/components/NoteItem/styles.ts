@@ -1,8 +1,6 @@
 import styled, { css } from "styled-components";
 import { DefaultTheme } from "styled-components/dist/types";
 
-import { NoteItemProps } from ".";
-
 const modifiers = {
   disabled: (theme: DefaultTheme) => css`
     background-color: ${theme.colors.gray[900]};
@@ -18,7 +16,7 @@ const modifiers = {
   `,
 };
 
-export const Wrapper = styled.div<Omit<NoteItemProps, "$value">>`
+export const Wrapper = styled.div<{ $isNewItem?: boolean }>`
   display: flex;
   align-items: center;
 

@@ -82,17 +82,17 @@ const Create = () => {
               placeholder="Observações"
               onChange={(e) => setDescription(e.target.value)}
             />
-            <Section $title="Links úteis">
+            <Section title="Links úteis">
               <S.SectionLinks>
                 {links.map((link) => (
                   <NoteItem
                     key={link}
-                    $value={link}
+                    value={link}
                     onClick={() => handleRemoveLink(link)}
                   />
                 ))}
                 <NoteItem
-                  $isNewItem
+                  isNewItem
                   placeholder="Novo link"
                   value={newLink}
                   onChange={(e) => setNewLink(e.target.value)}
@@ -100,17 +100,17 @@ const Create = () => {
                 />
               </S.SectionLinks>
             </Section>
-            <Section $title="Marcadores">
+            <Section title="Marcadores">
               <S.SectionMarkers>
                 {marker.map((marker) => (
                   <NoteItem
                     key={marker}
-                    $value={marker}
+                    value={marker}
                     onClick={() => handleRemoveMarker(marker)}
                   />
                 ))}
                 <NoteItem
-                  $isNewItem
+                  isNewItem
                   placeholder="Novo marcador"
                   value={newMarker}
                   onChange={(e) => setNewMarker(e.target.value)}
@@ -118,7 +118,7 @@ const Create = () => {
                 />
               </S.SectionMarkers>
             </Section>
-            <Button $title="Salvar" type="submit" />
+            <Button title="Salvar" type="submit" />
           </S.Form>
         </S.Container>
       </S.Main>

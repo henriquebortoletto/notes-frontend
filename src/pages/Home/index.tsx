@@ -32,6 +32,11 @@ const Home = () => {
   const [notes, setNotes] = useState<Note[]>([]);
 
   function handleSelectedTag(name: string) {
+    if (name === "all") {
+      setTagSelected([]);
+      return;
+    }
+
     const tagAlreadyExists = tagSelected.includes(name);
 
     if (!tagAlreadyExists) {
@@ -54,9 +59,8 @@ const Home = () => {
 
   useEffect(() => {
     async function getNotes() {
-      const response = await api.get(
-        `/notes?title=${search}&tags=${tagSelected}`
-      );
+      const url = `/notes?title=${search}&tags=${tagSelected}`;
+      const response = await api.get(url);
       setNotes(response.data);
     }
 
@@ -73,16 +77,16 @@ const Home = () => {
         <S.Menu>
           <S.Item>
             <ButtonText
-              $title="Todos"
-              $isActive={tagSelected.length === 0}
+              title="Todos"
+              isActive={tagSelected.length === 0}
               onClick={() => handleSelectedTag("all")}
             />
           </S.Item>
           {tags.map((tag) => (
             <S.Item key={tag.id}>
               <ButtonText
-                $title={tag.name}
-                $isActive={tagSelected.includes(tag.name)}
+                title={tag.name}
+                isActive={tagSelected.includes(tag.name)}
                 onClick={() => handleSelectedTag(tag.name)}
               />
             </S.Item>
@@ -97,11 +101,15 @@ const Home = () => {
         />
       </S.Search>
       <S.Content>
-        <Section $title="Minhas notas">
-          {notes.map((note) => {
-            const tags = note.tags.map((tag) => tag.name);
-            return <Note key={note.id} $title={note.title} $tags={tags} />;
-          })}
+        <Section title="Minhas notas">
+          {notes.map((note) => (
+            <Note
+              key={note.id}
+              id={note.id}
+              title={note.title}
+              tags={note.tags.map((tag) => tag.name)}
+            />
+          ))}
         </Section>
       </S.Content>
       <S.NewNote to="/create">

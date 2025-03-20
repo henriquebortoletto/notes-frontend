@@ -30,18 +30,18 @@ const SignIn = () => {
         <S.Login>Faça seu login</S.Login>
         <S.Form onSubmit={handleFormSubmit}>
           <Input
-            $icon={FiMail}
+            icon={FiMail}
             type="email"
             placeholder="E-mail"
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
-            $icon={FiLock}
+            icon={FiLock}
             type="password"
             placeholder="Senha"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button $title="Entrar" type="submit" />
+          <Button title="Entrar" type="submit" />
         </S.Form>
         <S.SignUpLink to="/signup">Criar conta</S.SignUpLink>
       </S.Box>

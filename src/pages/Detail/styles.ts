@@ -79,3 +79,24 @@ export const Item = styled.a`
     color: ${theme.colors.gray[100]};
   `}
 `;
+
+export const EmptyContainer = styled.div`
+  width: 100%;
+  max-width: calc(55.4rem + var(--gutter) * 2);
+  padding-inline: var(--gutter);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const EmptyText = styled.p`
+  margin-bottom: 3.2rem;
+
+  ${({ theme }) => css`
+    color: ${theme.colors.gray[100]};
+    font-size: ${theme.font.sizes.large};
+    font-weight: ${theme.font.weight.regular};
+  `}
+`;
