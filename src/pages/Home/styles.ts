@@ -46,7 +46,15 @@ export const Aside = styled.aside`
 
 export const Menu = styled.ul`
   list-style: none;
+  height: 68.2rem;
+  overflow-y: auto;
+`;
+
+export const Teste = styled.div`
   padding: 6.4rem 1.6rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 `;
 
 export const Item = styled.li`
@@ -84,4 +92,18 @@ export const NewNote = styled(Link)`
       color: ${theme.colors.gray[900]};
     }
   `};
+`;
+
+export const Empty = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.gray[900]};
+  `}
+`;
+
+export const EmptyText = styled.h2`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.larger};
+    font-weight: ${theme.font.weight.bold};
+    color: ${theme.colors.orange};
+  `}
 `;
