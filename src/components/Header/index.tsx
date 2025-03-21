@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { RiShutDownLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -10,6 +11,12 @@ const file = `${env.VITE_API_URL}/files`;
 
 const Header = () => {
   const { user, signOut } = useSession();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    navigate("/");
+    signOut();
+  }
 
   return (
     <S.Wrapper>
@@ -29,7 +36,7 @@ const Header = () => {
           <S.UserName>{user?.name}</S.UserName>
         </S.Content>
       </S.Profile>
-      <S.Logout onClick={signOut}>
+      <S.Logout onClick={handleLogout}>
         <RiShutDownLine />
       </S.Logout>
     </S.Wrapper>
