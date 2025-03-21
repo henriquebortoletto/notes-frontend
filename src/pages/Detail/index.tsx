@@ -49,7 +49,7 @@ const Detail = () => {
     if (!confirm) return;
 
     await api.delete(`/notes/${params.id}`);
-    navigate("/");
+    navigate(-1);
   }
 
   useEffect(() => {
@@ -109,7 +109,7 @@ const Detail = () => {
             </S.EmptyContainer>
           )}
 
-          <Button title="Voltar" onClick={() => navigate("/")} />
+          <Button title="Voltar" onClick={() => navigate(-1)} />
         </S.Container>
       </S.Main>
     </S.Wrapper>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiArrowLeft, FiCamera, FiLock, FiMail, FiUser } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -34,6 +35,8 @@ const Profile = () => {
     return null;
   });
 
+  const navigate = useNavigate();
+
   function handleOnSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -60,7 +63,11 @@ const Profile = () => {
   return (
     <S.Wrapper>
       <S.Header>
-        <S.ToBack to="/" title="Voltar para Home">
+        <S.ToBack
+          role="button"
+          title="Voltar para Home"
+          onClick={() => navigate(-1)}
+        >
           <FiArrowLeft />
         </S.ToBack>
       </S.Header>

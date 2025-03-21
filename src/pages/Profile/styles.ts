@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div``;
@@ -11,9 +10,11 @@ export const Header = styled.header`
   `}
 `;
 
-export const ToBack = styled(Link)`
+export const ToBack = styled.div`
   line-height: 0;
   padding: 1.4rem;
+  max-width: fit-content;
+  cursor: pointer;
 
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.huge};

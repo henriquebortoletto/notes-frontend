@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import ButtonText from "@/components/ButtonText";
 import TextArea from "@/components/TextArea";
 import NoteItem from "@/components/NoteItem";
 import Section from "@/components/Section";
@@ -9,6 +10,7 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 
 import { api } from "@/services";
+
 import * as S from "./styles";
 
 const Create = () => {
@@ -60,7 +62,7 @@ const Create = () => {
     });
 
     alert("Nota criada com sucesso!");
-    navigate("/");
+    navigate(-1);
   }
 
   return (
@@ -70,7 +72,7 @@ const Create = () => {
         <S.Container>
           <S.Heading>
             <S.HeadingTitle>Criar nota</S.HeadingTitle>
-            <S.HeadingLink to="/">voltar</S.HeadingLink>
+            <ButtonText title="voltar" onClick={() => navigate(-1)} />
           </S.Heading>
           <S.Form onSubmit={handleSubmit}>
             <Input

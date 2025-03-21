@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
@@ -33,25 +32,25 @@ export const Heading = styled.div`
   align-items: center;
 
   margin-bottom: 3.6rem;
+
+  > button {
+    ${({ theme }) => css`
+      font-size: ${theme.font.sizes.larger};
+      color: ${theme.colors.gray[200]};
+      transition: color 0.2s;
+
+      &:hover {
+        text-decoration: underline;
+        color: ${theme.colors.gray[100]};
+      }
+    `}
+  }
 `;
 
 export const HeadingTitle = styled.h2`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.huge};
     font-weight: ${theme.font.weight.medium};
-  `}
-`;
-
-export const HeadingLink = styled(Link)`
-  ${({ theme }) => css`
-    font-size: ${theme.font.sizes.larger};
-    color: ${theme.colors.gray[200]};
-    transition: color 0.2s;
-
-    &:hover {
-      text-decoration: underline;
-      color: ${theme.colors.gray[100]};
-    }
   `}
 `;
 
