@@ -1,5 +1,3 @@
-# RocketNotes - Frontend
-
 ## 💻 Sobre o Projeto
 
 RocketNotes é uma aplicação web para gerenciamento de notas e links úteis. Este é o frontend da aplicação, desenvolvido em React com TypeScript, fornecendo uma interface intuitiva para os usuários gerenciarem suas notas, tags e links.
